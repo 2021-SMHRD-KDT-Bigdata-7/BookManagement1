@@ -9,9 +9,40 @@ public class BooKDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
+	//createStatement stmt = null;
 	
-	int result; // 반환값
+	int result = 0; // 반환값
 
+	String sql;
+	
+	// 테이블 생성 메소드
+	public void table() {
+		// 1. 데이터베이스 연결
+		getConnect();
+		
+		sql = "create table book"
+				+ "( b_id varchar(10),"
+				+ "  b_title varchar2(50) not null,"
+				+ "  b_author varchar2(50) not null,"
+				+ "  b_publisher varchar2(30) not null,"
+				+ "  b_price number not null,"
+				+ "  constraint book_bid_pk primary key(b_id)"
+				+ ")";
+		
+		try {
+			
+			conn.createStatement();
+			
+			
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			Close();
+		}
+	}
 	// 데이터베이스를 연결하는 메소드 getConnect()
 
 	// 데이터베이스를 연결끊는 메소드 Close()
@@ -28,6 +59,7 @@ public class BooKDAO {
 
 	// delete delete()
 
+	// 데이터베이스를 연결하는 메소드 getConnect()
 	public void getConnect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -40,7 +72,7 @@ public class BooKDAO {
 			e.printStackTrace();
 		}
 	}
-
+	// 데이터베이스를 연결끊는 메소드 Close()
 	public void Close() {
 		try {
 			if (rs != null) {
