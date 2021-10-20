@@ -1,11 +1,21 @@
 
 public class BookVO {
 
-	String b_id;
-	String b_title;
-	String b_author;
-	String b_publisher;
+	private String b_id;
+	private String b_title;
+	private String b_author;
+	private String b_publisher;
 
+	public BookVO() {}
+	
+	public BookVO(String b_id, String b_title, String b_author, String b_publisher, int b_price) {
+		this.b_id = b_id;
+		this.b_title = b_title;
+		this.b_author = b_author;
+		this.b_publisher = b_publisher;
+		this.b_price = b_price;
+	}
+	
 	public String getB_id() {
 		return b_id;
 	}
@@ -46,11 +56,9 @@ public class BookVO {
 		this.b_price = b_price;
 	}
 
-	int b_price;
+	private int b_price;
 
-	public BookVO(String b_id, String b_title, String b_author, String b_publisher, String b_price) {
 
-	}
 	public String toString() {
 		return "Book { [일련번호 : "+this.b_id+"] [책 제목 : "+this.b_title+"] [저자 : "+this.b_author+"] [출판사 : "+this.b_publisher+"] [가격 : "+this.b_price+"]}";
 	}
