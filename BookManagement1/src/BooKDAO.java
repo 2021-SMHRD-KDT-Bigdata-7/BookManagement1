@@ -19,7 +19,6 @@ public class BooKDAO {
 	public void table() {
 		// 1. 데이터베이스 연결
 		getConnect();
-		
 		sql = "create table book"
 				+ "( b_id varchar(10),"
 				+ "  b_title varchar2(50) not null,"
@@ -32,8 +31,6 @@ public class BooKDAO {
 		try {
 			
 			conn.createStatement();
-			
-			
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			
