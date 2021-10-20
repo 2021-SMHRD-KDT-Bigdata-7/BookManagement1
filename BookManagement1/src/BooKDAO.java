@@ -4,10 +4,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BOOKDAO {
+public class BooKDAO {
+	
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
+	
 	int result; // 반환값
 
 	// 데이터베이스를 연결하는 메소드 getConnect()
@@ -19,6 +21,7 @@ public class BOOKDAO {
 	// insert insert()
 
 	// select select()
+	
 	// select selectAll()
 
 	// update update()
